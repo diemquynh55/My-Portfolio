@@ -59,3 +59,25 @@ backProfileBtn.onclick = () => {
     }, (index + 1) * 200 + 100); // mỗi trang delay 0.4s
   });
 };
+
+// Khởi tạo EmailJS bằng Public Key của bạn
+(function () {
+  emailjs.init("FaTgYkke84m-G4QnG"); // thay YOUR_PUBLIC_KEY bằng key thật trong dashboard
+})();
+
+// Xử lý khi submit form
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault(); // chặn reload trang
+
+    emailjs.sendForm("service_ukaeqwj", "template_xjpec7f", this).then(
+      () => {
+        alert("✅ Message sent successfully!");
+        this.reset(); // xoá nội dung form
+      },
+      (error) => {
+        alert("❌ Failed to send message. Error: " + JSON.stringify(error));
+      }
+    );
+  });
