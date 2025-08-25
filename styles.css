@@ -47,14 +47,6 @@ body {
 .cover.cover-left {
   z-index: -1;
 }
-.cover.cover-right {
-  transform-origin: left;
-  transition: transform 1s ease;
-}
-
-.cover.cover-right.open {
-  transform: rotateY(180deg);
-}
 .cover.cover-right.turn {
   transform: rotateY(180deg);
 }
