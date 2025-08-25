@@ -81,3 +81,24 @@ document
       }
     );
   });
+
+// Reset về TRANG ĐẦU mỗi khi mở web
+window.addEventListener("load", () => {
+  const pages = document.querySelectorAll(".book-page.page-right");
+  const coverRight = document.querySelector(".cover.cover-right");
+  const book = document.querySelector(".book");
+
+  // đảm bảo tất cả các trang đều "đóng" lại
+  pages.forEach((page, i) => {
+    page.classList.remove("turn");
+    page.style.zIndex = 20 - i;
+  });
+
+  // hiệu ứng fade-in quyển sách
+  book.classList.add("is-in");
+
+  // delay một chút rồi mở bìa phải
+  setTimeout(() => {
+    coverRight.classList.add("open");
+  }, 700);
+});

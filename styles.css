@@ -47,6 +47,14 @@ body {
 .cover.cover-left {
   z-index: -1;
 }
+.cover.cover-right {
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+
+.cover.cover-right.open {
+  transform: rotateY(180deg);
+}
 .cover.cover-right.turn {
   transform: rotateY(180deg);
 }
@@ -59,6 +67,13 @@ body {
   display: flex;
   perspective: 250rem;
   /* overflow: hidden; */
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.book.is-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-page {
